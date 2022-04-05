@@ -18,6 +18,7 @@
 		0D62245A27D1F64200232A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D62245927D1F64200232A13 /* Assets.xcassets */; };
 		0D62245D27D1F64200232A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D62245B27D1F64200232A13 /* LaunchScreen.storyboard */; };
 		0D666C6327DAB34C007CC6B1 /* APManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D666C6227DAB34C007CC6B1 /* APManager.swift */; };
+		0D6B95FC27FC40DC00EC2C49 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B95FB27FC40DC00EC2C49 /* Messages.swift */; };
 		0D6F50BA27F64C0F001A2F07 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F50B927F64C0F001A2F07 /* StartController.swift */; };
 		8EF737F8C5743BBD9D4DECD0 /* Pods_DatingApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A260465AAC0E72E8FBC191C3 /* Pods_DatingApp2.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		0D62245C27D1F64200232A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D62245E27D1F64200232A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D666C6227DAB34C007CC6B1 /* APManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APManager.swift; sourceTree = "<group>"; };
+		0D6B95FB27FC40DC00EC2C49 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		0D6F50B927F64C0F001A2F07 /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		52EB639E9473839C65BAB3F9 /* Pods-DatingApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatingApp2.debug.xcconfig"; path = "Target Support Files/Pods-DatingApp2/Pods-DatingApp2.debug.xcconfig"; sourceTree = "<group>"; };
 		8952609A2F0278A8973EA763 /* Pods-DatingApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatingApp2.release.xcconfig"; path = "Target Support Files/Pods-DatingApp2/Pods-DatingApp2.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		0D62244F27D1F63E00232A13 /* DatingApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				0D6B95FA27FC40B500EC2C49 /* Models */,
 				0D36527F27F594CE00311484 /* Controllers */,
 				0D62245027D1F63E00232A13 /* AppDelegate.swift */,
 				0D62245227D1F63E00232A13 /* SceneDelegate.swift */,
@@ -98,6 +101,14 @@
 				0D36527B27F52AC400311484 /* AuthManager.swift */,
 			);
 			path = DatingApp2;
+			sourceTree = "<group>";
+		};
+		0D6B95FA27FC40B500EC2C49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D6B95FB27FC40DC00EC2C49 /* Messages.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		85FDB0CC869F8C2F2FEE1418 /* Frameworks */ = {
@@ -234,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D62245527D1F63E00232A13 /* HomeController.swift in Sources */,
+				0D6B95FC27FC40DC00EC2C49 /* Messages.swift in Sources */,
 				0D36527E27F5935300311484 /* SigninController.swift in Sources */,
 				0D6F50BA27F64C0F001A2F07 /* StartController.swift in Sources */,
 				0D36528127F5950900311484 /* SMSCodeViewController.swift in Sources */,

@@ -15,42 +15,51 @@ class SigninController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var codeTF: UITextField!
     
+    var verificationId: String = ""
+    
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        codeTF.isHidden = true
     }
-    
-    var verificationId: String? = nil
 
     @IBAction func enterButton(_ sender: Any) {
-        if (codeTF.isHidden) {
-            if !phoneTF.text!.isEmpty {
-            Auth.auth().settings?.isAppVerificationDisabledForTesting = false
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneTF.text!, uiDelegate: nil, completion: { verificationID, error in
-                if error != nil {
-                    print(error.debugDescription)
+        
+        guard let phoneNumber = phoneTF.text else { return }
+        
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+                if (error != nil) {
+                    print("Error")
+                  return
                 } else {
-                    self.verificationId = verificationID
-                    self.codeTF.isHidden = false
+                    // Successful. User gets verification code
+                    // Save verificationID in UserDefaults
+                   UserDefaults.standard.set(verificationID, forKey: "firebase_verification")
+                   UserDefaults.standard.synchronize()
+                    self.performSegue(withIdentifier: "HomeController", sender: sender)
                 }
-            })
-        } else {
-            print("Error getting the phone number")
-        }
-        } else {
-            if verificationId != nil {
-                let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId!, verificationCode: codeTF.text!)
-                Auth.auth().signIn(with: credential, completion: { authdata, error in
-                    if (error != nil) {
-                        print(error.debugDescription)
-                    } else {
-                        print("Authentication Success with Number " + (authdata?.user.phoneNumber! ?? "Phone Number"))
-                    }
-                })
+                
+            }
+    }
+    
+    @IBAction func verifyNumber(_ sender: Any) {
+        
+        guard let code = codeTF.text else { return }
+        guard let verification_id = userDefault.string(forKey: "verificationId") else { return }
+        
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verification_id, verificationCode: code)
+        
+        Auth.auth().signIn(with: credential) { authdata, error in
+            if error == nil {
+                print("success")
+                print("User signed in..")
+                
             } else {
-                print("Error in getting verification ID")
+                print("Something went wrong..\(error?.localizedDescription)")
             }
         }
+        
     }
 }
