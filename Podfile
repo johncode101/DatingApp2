@@ -10,6 +10,10 @@ target 'DatingApp2' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'MessageKit'
+  pod 'JGProgressHUD'
+
 
 
 end
